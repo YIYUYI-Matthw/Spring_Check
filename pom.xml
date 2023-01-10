@@ -15,6 +15,8 @@
         <module>Demo02_SF_IoC</module>
         <module>Demo03_SF_DI</module>
         <module>Demo04_SF_Container</module>
+        <module>Demo05_SF_Annotation</module>
+        <module>Demo06_SF_OuterBean</module>
     </modules>
 
     <dependencies>
