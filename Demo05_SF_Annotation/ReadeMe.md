@@ -62,3 +62,6 @@
   在`getBean(BookService.class)`时，虽然参数是BookService类，但获得的却是其**被Bean注解修饰的实现子类**，这一点可以通过Bean实例化的三种方式来理解：
 
   当前是第三种：传入类别进行getBean操作，而更易理解的是其他两种，如`getBean("bookService", BookService.class)`
+
+**提问**：在注解开发模式下，含参构造如何配置？
+对于含参构造（或者其他方法？待续），其形参默认按照AutoWire方式配置，通过使用`@ComponentScan`注解修饰该方法所在类，则spring自动扫描并且装配

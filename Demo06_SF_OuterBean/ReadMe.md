@@ -41,8 +41,10 @@ public @interface Bean {
 
 外部Bean的引用：
 
-① 在配置类中通过`@Import`注解引用到相应的Bean；
+① 在配置类中通过`@Import`注解引用到相应的Bean：反射方式配置；
 
-② 用`@Configuration`修饰外部Bean的注册类，并在主导配置类中添加扫描路径获取Bean。
+② 用`@Configuration`修饰外部Bean的注册类，并在主导配置类中添加扫描路径获取Bean：注解方式配置。
 
 然后就能正常获取、使用了
+
+驱动配置：[这个讲的很好](https://blog.csdn.net/Camel_LT/article/details/109299205)
