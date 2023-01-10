@@ -32,7 +32,7 @@
     * 销毁Bean-destroy()
 * 配置生命周期方法
     * 方法一:在类定义中设定init和destroy方法;在Bean配置中配置`init-method`和`destroy-method`
-    * 方法二:实现spring提供的initializingBean和DisposableBean接口及其初始化和销毁方法
+    * 方法二:实现spring提供的initializingBean和DisposableBean接口及其初始化和销毁方法：实现该接口则不用在xml中配置内容
     * 注意:destroy方法需要手动设置`context.close`,如果不设置则不会执行销毁方法,而是在程序执行完毕后退出
         * 且close方法是在`ClassPathApplicationContextXml`实现类中才有的,`ApplicationContext`接口没有
 

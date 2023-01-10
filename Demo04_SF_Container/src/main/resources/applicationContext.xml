@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--这个xml就是实现IoC容器的重要文件：配置了Bean、定义了DI-->
+
+    <bean id="bookDaoBean" class="com.yaobukeji.dao.impl.BookDaoImpl" lazy-init="true">
+        <!--各个配置项
+                ① id：给Bean起名字，之后做DI的时候方面引用
+                ② class：封装哪个类为Bean-->
+    </bean>
+
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+        <!--各个配置项
+                ③ property：定义Bean内部属性-->
+        <property name="bookDao" ref="bookDaoBean">
+            <!--spring中做DI时，是通过set方法将Bean实例化的-->
+            <!--各个配置项
+                    name：被依赖Bean在主依赖Bean中作为成员变量的变量名
+                    ref：被依赖Bean在容器中的名字
+            -->
+        </property>
+    </bean>
+
+
+</beans>
+

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Demo04_SF_Container</artifactId>
+    <artifactId>Demo01_SF_Container</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
