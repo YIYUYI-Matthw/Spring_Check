@@ -15,6 +15,8 @@
     * IoC容器实例化
       不再通过给定配置文件路径形式初始化IoC容器，而是通过向另一个类`AnnotationConfigApplicationContext`传入配置类来初始化IoC容器
 
+  对于多个配置类：一般会有一个类为主导，通常是`SpringConfig.class`，其他配置类则会被配置到主导配置类的“扫描路径”中，从而提供各个Bean
+
 ① 注解开发一阶段
 
 * Bean注解
