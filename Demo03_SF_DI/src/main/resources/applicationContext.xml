@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--这个xml就是实现IoC容器的重要文件：配置了Bean、定义了DI-->
+    <context:property-placeholder location="config.properties,config02.properties"/>
+    <!--base-package：该目录及其子目录下如果有添加@Bean系列注解的，会被注册为Bean-->
+    <!--    <context:component-scan base-package="com.yaobukeji.service.impl"/>-->
+
+    <bean id="bookDaoBean"
+          name="bookDaoAlias, daoAlias"
+          class="com.yaobukeji.dao.impl.BookDaoImpl"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destroy"/>
+
+    <!--property注入（setter）
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDaoAlias"/>
+    </bean>
+    -->
+
+    <!--constructor注入
+    <bean id="bookServiceBean" name="bookServiceAlias" class="com.yaobukeji.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDaoAlias"/>
+    </bean>
+    -->
+
+    <!--自动装配注入：BookDao-->
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl" autowire="byType">
+        <!--集合注入：List<BookDao>：service中提供了setDaos，所以这里是daos-->
+        <property name="list">
+            <list>
+                <!--如何是注入多个Bean，还是取消单例模式比较好-->
+                <ref bean="bookDaoBean"/>
+            </list>
+        </property>
+        <!--properties文件注入：下面这个报错，但是可以正常使用-->
+        <property name="val01" value="${config.val01}"/>
+        <property name="val02" value="${config.val02}"/>
+    </bean>
+
+</beans>
+

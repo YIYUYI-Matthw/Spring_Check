@@ -14,6 +14,7 @@
         <module>Demo00_SF_Init</module>
         <module>Demo02_SF_IoC</module>
         <module>Demo03_SF_DI</module>
+        <module>Demo04_SF_Container</module>
     </modules>
 
     <dependencies>

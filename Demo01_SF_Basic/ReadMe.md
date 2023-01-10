@@ -21,5 +21,5 @@
 * id:标记Bean:提供给其他Bean注入依赖; IoC容器获取Bean的依据
 * class:标明是哪个类被封装为Bean
 * property:Bean容器属性配置,这里用于依赖注入:配置成员Bean
-    * name:类定义中的成员Bean的实例名
+    * name:依赖Bean中setDao中的“Dao”部分，注意不是成员Bean的实例名
     * ref:成员Bean由哪个类实例化(注入哪个Bean)
