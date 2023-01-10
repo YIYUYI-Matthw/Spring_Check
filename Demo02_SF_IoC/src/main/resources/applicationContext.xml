@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--这个xml就是实现IoC容器的重要文件：配置了Bean、定义了DI-->
+
+    <context:component-scan base-package="com.yaobukeji.dao.impl"/>
+
+    <bean id="bookDaoBean"
+          name="bookDaoAlias, daoAlias"
+          class="com.yaobukeji.dao.impl.BookDaoImpl"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destroy"/>
+
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDaoAlias"/>
+    </bean>
+
+
+</beans>
+
