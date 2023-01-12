@@ -17,6 +17,7 @@
         <module>Demo04_SF_Container</module>
         <module>Demo05_SF_Annotation</module>
         <module>Demo06_SF_OuterBean_Druid</module>
+        <module>Demo07_SF_OuterBean_MyBatis</module>
     </modules>
 
     <dependencies>

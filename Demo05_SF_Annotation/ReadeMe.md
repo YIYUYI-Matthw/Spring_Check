@@ -63,5 +63,14 @@
 
   当前是第三种：传入类别进行getBean操作，而更易理解的是其他两种，如`getBean("bookService", BookService.class)`
 
-**提问**：在注解开发模式下，含参构造如何配置？
+**提问**：
+
+1. 在注解开发模式下，含参构造如何配置？
+
 对于含参构造（或者其他方法？待续），其形参默认按照AutoWire方式配置，通过使用`@ComponentScan`注解修饰该方法所在类，则spring自动扫描并且装配
+
+2. `@Configuration`和`@Import`方式注册Bean的区别
+
+使用Configuration修饰的类会比较早地执行初始化，如果是非初始化用的Bean，可以通过Import方式添加，如Dao、Service类型的Bean：可以使用懒加载（`@Lazy`）
+
+（Configuration修饰的Bean能不能“懒加载”？待续）

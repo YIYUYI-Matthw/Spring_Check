@@ -3,10 +3,14 @@ package com.yaobukeji.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 /*
 配置Druid外部Bean
  */
+@Configuration
 public class JdbcConfig {
     @Value("${jdbc.mysql.driver}")
     String driver;
@@ -18,7 +22,8 @@ public class JdbcConfig {
     String password;
 
     @Bean
-    public DruidDataSource getDataSource() {
+    public DataSource getDataSource() {
+        // 这里返回的是DataSource而不是DruidDataSource
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driver);
         dataSource.setUrl(url);

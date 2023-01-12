@@ -48,3 +48,5 @@ public @interface Bean {
 然后就能正常获取、使用了
 
 驱动配置：[这个讲的很好](https://blog.csdn.net/Camel_LT/article/details/109299205)
+
+DruidDataSource同时提供数据源和连接池，但总是对JDBC的封装，所以一般在使用druid的时候都需要把JDBC的坐标也带上
