@@ -7,6 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan("com.yaobukeji")
-@PropertySource("classpath:config.properties")
+@EnableAspectJAutoProxy
 public class SpringConfig {
 }
