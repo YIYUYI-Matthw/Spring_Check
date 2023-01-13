@@ -31,8 +31,21 @@ SpringMVC是表现层框架、Spring事务管理业务层、Dao为数据层
       加载mvcConfig配置：`context.register(~.class)`
 
     * getServletMappings：设置哪些请求（路径）归属springMVC处理："/"：所有请求归mvc处理
-    * createRootApplicationContext：springConfig：类比mvcConfig设置，也是在webApplication中register
 
+      `WebMvcConfigurationSupport`类支持添加静态资源路径：如访问某个js或html而不是请求路由：
+      单独写一个Support类&Configuration注解
+
+        ```java
+        // 配字符编码过滤器
+        @Override
+        protected Filter[] getServletFilters() {
+            CharacterEncodingFilter filter = new CharacterEncodingFilter();
+            filter.setEncoding("utf-8");
+            return new Filter[]{filter};
+        }
+        ```
+
+* createRootApplicationContext：springConfig：类比mvcConfig设置，也是在webApplication中register
 
 * 表现层
 

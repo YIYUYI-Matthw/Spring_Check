@@ -81,3 +81,39 @@
   在接收json数据配置的基础上增加`json-core`依赖
 
   `return pojo;` // spring会将实体类转为json返回
+
+（4）RESTful风格开发
+
+* 传统风格资源描述形式
+
+  http://localhost/user/getById?id=1
+
+  http://localhost/user/saveUser
+
+* REST风格描述形式
+
+  http://localhost/user/1
+
+  http://localhost/user
+
+* 优点：
+
+  隐藏资源的访问行为，无法通过地址得知对资源是何种操作
+
+  书写简化
+
+* 做法：方法执行内容依据请求类型、url路径导向而改变
+
+    ```java
+    @RequestMapping(value = "/users/{id}" ,method = RequestMethod.DELETE)
+    @ResponseBody
+    public String delete(@PathVariable Integer id){
+        service.delete(id);
+        return "{'module':'user delete'}";
+    }
+    // 使用{id}传递参数；使用RequestMethod传递请求类型；使用@PathVariable接收路径信息
+    ```
+
+* 简化：将RM和RB注解用`@XXMapping`代替
+
+  `@GetMapping("/users/{id}")`
