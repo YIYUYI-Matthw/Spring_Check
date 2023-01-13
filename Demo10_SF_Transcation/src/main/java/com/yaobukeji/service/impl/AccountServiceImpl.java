@@ -15,12 +15,15 @@ public class AccountServiceImpl implements AccountService {
     LogService logService;
 
     @Override
-    @Transactional(rollbackFor = ArithmeticException.class)
+    @Transactional(rollbackFor = ArithmeticException.class) // 写到interface里也行
     public void transfer() {
-        int line_change1 = bookDao.outMoney("Doris");
-        int a = 1 / 0; // 模拟错误：这个是算术异常：不在默认回滚异常内，要加上
-        int line_change2 = bookDao.inMoney("Matthew");
-        // log：已定义为新事务
-        logService.logInfo();
+        try {
+            int line_change1 = bookDao.outMoney("Doris");
+            int a = 1 / 0; // 模拟错误：这个是算术异常：不在默认回滚异常内，要加上
+            int line_change2 = bookDao.inMoney("Matthew");
+        } finally {
+            // log：已定义为新事务
+            logService.logInfo();
+        }
     }
 }

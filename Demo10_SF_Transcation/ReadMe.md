@@ -76,6 +76,6 @@ Spring并不会对所有的异常进行回滚：对于RuntimeException或Error�
 如果只是的`try{in; out}catch{log;}`，则最终不会生效
 try-catch：表示人工处理异常了：不会回滚。如果不try-catch：控制台报错：在MVC中有关于异常处理的一些机制！
 
-需要声明log业务为转账业务（int&out）之外的新事务：`Propagation.REQUIRES_NEW)`
+需要声明log业务为转账业务（int&out）之外的新事务：`Propagation.REQUIRES_NEW)`（配合try-<u>finally</u>）
 
 `Transactional(propagation = Progation.REQUIRES_NEW`
