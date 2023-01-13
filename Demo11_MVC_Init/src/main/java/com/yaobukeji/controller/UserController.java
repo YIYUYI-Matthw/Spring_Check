@@ -1,5 +1,6 @@
 package com.yaobukeji.controller;
 
+import com.yaobukeji.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
     @RequestMapping("/check")
     @ResponseBody
-    public String check() {
-        return "{'hello':'world'}";
+    public User check() {
+        return new User("Matthew", 22);
     }
 }
