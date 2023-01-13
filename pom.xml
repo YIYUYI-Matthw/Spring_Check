@@ -21,6 +21,11 @@
         <module>Demo08_SF_OuterBean_UnitTest</module>
         <module>Demo09_SF_AOP</module>
         <module>Demo10_SF_Transcation</module>
+        <module>Demo11_MVC_Init</module>
+        <module>Demo12_MVC_ReqRes</module>
+        <module>Demo13_MVC_Combination</module>
+        <module>Demo14_MVC_ExceptionHandle</module>
+        <module>Demo15_MVC_Interception</module>
     </modules>
 
     <dependencies>
