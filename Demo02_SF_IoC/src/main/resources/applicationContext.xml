@@ -13,7 +13,7 @@
           init-method="init"
           destroy-method="destroy"/>
 
-    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.AccountServiceImpl">
         <property name="bookDao" ref="bookDaoAlias"/>
     </bean>
 

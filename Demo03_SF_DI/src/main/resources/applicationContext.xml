@@ -20,19 +20,19 @@
           destroy-method="destroy"/>
 
     <!--property注入（setter）
-    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.AccountServiceImpl">
         <property name="bookDao" ref="bookDaoAlias"/>
     </bean>
     -->
 
     <!--constructor注入
-    <bean id="bookServiceBean" name="bookServiceAlias" class="com.yaobukeji.service.impl.BookServiceImpl">
+    <bean id="bookServiceBean" name="bookServiceAlias" class="com.yaobukeji.service.impl.AccountServiceImpl">
         <constructor-arg name="bookDao" ref="bookDaoAlias"/>
     </bean>
     -->
 
     <!--自动装配注入：BookDao-->
-    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl" autowire="byType">
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.AccountServiceImpl" autowire="byType">
         <!--集合注入：List<BookDao>：service中提供了setDaos，所以这里是daos-->
         <property name="list">
             <list>

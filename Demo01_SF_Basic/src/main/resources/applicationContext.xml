@@ -12,7 +12,7 @@
                 ② class：封装哪个类为Bean-->
     </bean>
 
-    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.BookServiceImpl">
+    <bean id="bookServiceBean" class="com.yaobukeji.service.impl.AccountServiceImpl">
         <!--各个配置项
                 ③ property：定义Bean内部属性-->
         <property name="bookDao" ref="bookDaoBean">

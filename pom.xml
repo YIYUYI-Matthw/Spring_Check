@@ -20,6 +20,7 @@
         <module>Demo07_SF_OuterBean_MyBatis</module>
         <module>Demo08_SF_OuterBean_UnitTest</module>
         <module>Demo09_SF_AOP</module>
+        <module>Demo10_SF_Transcation</module>
     </modules>
 
     <dependencies>
